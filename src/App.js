@@ -32,14 +32,14 @@ const LoopCard = ({ index, data, updateData, removeData }) => {
 
   return (
     <div className="bg-white shadow rounded-xl p-2 w-full max-w-[220px] relative">
-      <div className="absolute top-2 left-2 w-6 h-6 rounded-full bg-gray-200 text-center text-sm font-bold text-gray-700 leading-6">
+      <div className="absolute top-2 left-2 w-6 h-6 rounded-full border border-gray-300 text-center text-sm font-bold text-gray-700 leading-6">
         {index + 1}
       </div>
       <button
         onClick={() => removeData(index)}
-        className="absolute top-2 right-2 w-6 h-6 rounded-full bg-gray-500 text-white font-bold text-center flex items-center justify-center"
+        className="absolute top-2 right-2 w-6 h-6 rounded-full border border-gray-300 text-gray-700 font-bold text-center flex items-center justify-center bg-transparent hover:bg-gray-100"
       >
-        -
+        −
       </button>
       <div className="flex flex-col items-center gap-2 mb-1">
         <input
@@ -147,7 +147,7 @@ const LoopCardList = () => {
   });
 
   return (
-    <div>
+    <div className="px-6 sm:px-8 md:px-12">
       <div className="flex flex-wrap gap-4 items-start mb-4">
         <TempDeltaCard value={deltaT} onChange={setDeltaT} />
         <div className="bg-white shadow rounded-xl p-2 w-full max-w-[220px]">
@@ -160,6 +160,7 @@ const LoopCardList = () => {
           </div>
         </div>
       </div>
+
       <div className="flex flex-wrap justify-start gap-3 mb-6">
         {cards.map((card, index) => (
           <LoopCard
@@ -177,6 +178,7 @@ const LoopCardList = () => {
           +
         </button>
       </div>
+
       <div className="flex flex-wrap justify-start gap-3">
         {results.map((res, index) => (
           <ResultCard
