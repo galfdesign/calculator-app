@@ -1,4 +1,13 @@
 import React, { useState } from 'react';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid
+} from 'recharts';
 
 const TempDeltaCard = ({ value, onChange }) => (
   <div className="bg-white shadow rounded-xl p-2 w-full max-w-[220px] mb-4">
@@ -99,6 +108,28 @@ const ResultCard = ({ index, name, power, flowRate, resistance }) => {
   );
 };
 
+const FlowRateChartCard = ({ data }) => {
+  const chartData = data.map((item, index) => ({
+    name: item.name || `Петля ${index + 1}`,
+    flow: parseFloat(item.flowRate.toFixed(2))
+  }));
+
+  return (
+    <div className="bg-white shadow rounded-xl p-4 w-full max-w-full mt-6">
+      <div className="text-sm font-semibold text-center mb-2">График расходов (л/мин)</div>
+      <ResponsiveContainer width="100%" height={250}>
+        <BarChart data={chartData}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" fontSize={12} />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="flow" fill="#60a5fa" radius={[6, 6, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
+
 const LoopCardList = () => {
   const [cards, setCards] = useState([{ name: "", totalLength: 70, supplyLength: 15, innerDiameter: 12 }]);
   const [deltaT, setDeltaT] = useState(5);
@@ -191,6 +222,8 @@ const LoopCardList = () => {
           />
         ))}
       </div>
+
+      <FlowRateChartCard data={results} />
     </div>
   );
 };
