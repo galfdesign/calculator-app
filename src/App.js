@@ -148,7 +148,7 @@ const LoopCardList = () => {
 
   return (
     <div className="px-6 sm:px-8 md:px-12">
-      <div className="flex flex-wrap gap-4 items-start mb-4">
+      <div className="flex flex-wrap justify-center sm:justify-start gap-4 items-start mb-4">
         <TempDeltaCard value={deltaT} onChange={setDeltaT} />
         <div className="bg-white shadow rounded-xl p-2 w-full max-w-[220px]">
           <div className="text-sm font-semibold text-center mb-2">Общие итоги</div>
