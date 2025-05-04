@@ -119,11 +119,11 @@ const FlowRateChartCard = ({ data }) => {
       <div className="text-sm font-semibold text-center mb-2">График расходов (л/мин)</div>
       <ResponsiveContainer width="100%" height={250}>
         <BarChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontSize={12} />
-          <YAxis />
+          <CartesianGrid stroke="#999" strokeWidth={1.5} strokeDasharray="3 3" />
+          <XAxis dataKey="name" fontSize={12} stroke="#666" strokeWidth={2} />
+          <YAxis stroke="#666" strokeWidth={2} />
           <Tooltip />
-          <Bar dataKey="flow" fill="#60a5fa" radius={[6, 6, 0, 0]} />
+          <Bar dataKey="flow" fill="#999" radius={[6, 6, 0, 0]} barSize={30} />
         </BarChart>
       </ResponsiveContainer>
     </div>
