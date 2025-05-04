@@ -192,7 +192,7 @@ const LoopCardList = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center sm:justify-start gap-3 mb-6">
+      <div className="flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-6">
         {cards.map((card, index) => (
           <LoopCard
             key={index}
@@ -210,7 +210,7 @@ const LoopCardList = () => {
         </button>
       </div>
 
-      <div className="flex flex-wrap justify-center sm:justify-start gap-3">
+      <div className="flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-3 md:gap-4 lg:gap-6">
         {results.map((res, index) => (
           <ResultCard
             key={index}
