@@ -39,7 +39,9 @@ const LoopCard = ({ index, data, updateData, removeData }) => {
     updateData(index, { ...data, [field]: newValue });
   };
 
-  const handleChange = (field, value) => updateData(index, { ...data, [field]: value });
+  const handleChange = (field, value) => {
+    updateData(index, { ...data, [field]: value });
+  };
 
   return (
     <div className="bg-white shadow rounded-xl p-2 w-full max-w-[220px] relative">
