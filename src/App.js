@@ -17,7 +17,12 @@ const TempDeltaCard = ({ value, onChange }) => (
   <div className="bg-white shadow rounded-xl p-2 w-full max-w-[220px] mb-4">
     <div className="text-sm font-semibold text-center mb-2">ΔT (°C)</div>
     <div className="flex items-center justify-center gap-1">
-      <button onClick={() => onChange(Math.max(2, value - 1))} className="px-2 py-1 text-sm bg-gray-200 rounded">-</button>
+      <button
+        onClick={() => onChange(Math.max(2, value - 1))}
+        className="px-2 py-1 text-sm bg-gray-200 rounded"
+      >
+        -
+      </button>
       <input
         type="number"
         min={2}
@@ -29,7 +34,12 @@ const TempDeltaCard = ({ value, onChange }) => (
         }}
         className="border border-gray-300 rounded-md p-1 text-sm w-20 text-center"
       />
-      <button onClick={() => onChange(Math.min(15, value + 1))} className="px-2 py-1 text-sm bg-gray-200 rounded">+</button>
+      <button
+        onClick={() => onChange(Math.min(15, value + 1))}
+        className="px-2 py-1 text-sm bg-gray-200 rounded"
+      >
+        +
+      </button>
     </div>
   </div>
 );
@@ -38,11 +48,15 @@ const LoopCard = ({ index, data, updateData, removeData }) => {
   const adjustValue = (field, delta) => {
     const newValue = Math.max(0, (parseInt(data[field], 10) || 0) + delta);
     updateData(index, { ...data, [field]: newValue });
+<<<<<<< HEAD
   };
 
   const handleChange = (field, value) => {
     updateData(index, { ...data, [field]: value });
+=======
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
   };
+  const handleChange = (field, value) => updateData(index, { ...data, [field]: value });
 
   return (
     <div className="bg-white shadow rounded-xl p-2 w-full max-w-[220px] relative">
@@ -61,19 +75,28 @@ const LoopCard = ({ index, data, updateData, removeData }) => {
           type="text"
           placeholder="Название"
           value={data.name}
+<<<<<<< HEAD
           onChange={(e) => handleChange('name', e.target.value)}
+=======
+          onChange={e => handleChange('name', e.target.value)}
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
           className="border border-gray-300 rounded-md p-1 text-sm w-36 text-center"
         />
 
         <div className="flex items-center gap-1">
+<<<<<<< HEAD
           <button
             onClick={() => adjustValue('totalLength', -10)}
             className="px-2 py-1 text-sm bg-gray-200 rounded"
           >-</button>
+=======
+          <button onClick={() => adjustValue('totalLength', -10)} className="px-2 py-1 text-sm bg-gray-200 rounded">-</button>
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
           <input
             type="number"
             placeholder="Общ. длина (м)"
             value={data.totalLength}
+<<<<<<< HEAD
             onChange={(e) => handleChange('totalLength', e.target.value)}
             className="border border-gray-300 rounded-md p-1 text-sm w-20 text-center"
           />
@@ -81,17 +104,28 @@ const LoopCard = ({ index, data, updateData, removeData }) => {
             onClick={() => adjustValue('totalLength', 10)}
             className="px-2 py-1 text-sm bg-gray-200 rounded"
           >+</button>
+=======
+            onChange={e => handleChange('totalLength', e.target.value)}
+            className="border border-gray-300 rounded-md p-1 text-sm w-20 text-center"
+          />
+          <button onClick={() => adjustValue('totalLength', 10)} className="px-2 py-1 text-sm bg-gray-200 rounded">+</button>
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
         </div>
 
         <div className="flex items-center gap-1">
+<<<<<<< HEAD
           <button
             onClick={() => adjustValue('supplyLength', -10)}
             className="px-2 py-1 text-sm bg-gray-200 rounded"
           >-</button>
+=======
+          <button onClick={() => adjustValue('supplyLength', -10)} className="px-2 py-1 text-sm bg-gray-200 rounded">-</button>
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
           <input
             type="number"
             placeholder="Подводящие (м)"
             value={data.supplyLength}
+<<<<<<< HEAD
             onChange={(e) => handleChange('supplyLength', e.target.value)}
             className="border border-gray-300 rounded-md p-1 text-sm w-20 text-center"
           />
@@ -99,13 +133,23 @@ const LoopCard = ({ index, data, updateData, removeData }) => {
             onClick={() => adjustValue('supplyLength', 10)}
             className="px-2 py-1 text-sm bg-gray-200 rounded"
           >+</button>
+=======
+            onChange={e => handleChange('supplyLength', e.target.value)}
+            className="border border-gray-300 rounded-md p-1 text-sm w-20 text-center"
+          />
+          <button onClick={() => adjustValue('supplyLength', 10)} className="px-2 py-1 text-sm bg-gray-200 rounded">+</button>
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
         </div>
 
         <input
           type="number"
           placeholder="Диаметр (мм)"
           value={data.innerDiameter}
+<<<<<<< HEAD
           onChange={(e) => handleChange('innerDiameter', e.target.value)}
+=======
+          onChange={e => handleChange('innerDiameter', e.target.value)}
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
           className="border border-gray-300 rounded-md p-1 text-sm w-36 text-center"
         />
 
@@ -162,10 +206,17 @@ const FlowRateChartCard = ({ data }) => {
 
 const PumpCurveSmallCard = ({ curve, operatingPoint }) => (
   <div className="p-4 w-full max-w-[220px] mb-4 flex flex-col items-center h-[260px]">
+<<<<<<< HEAD
     <div className="text-sm font-semibold text-center mb-2">Кривая насоса 25-60</div>
     <div className="w-full flex justify-start -ml-12">
       <ResponsiveContainer width="100%" height={180}>
         <LineChart data={curve.data}>
+=======
+    <div className="text-sm font-semibold text-center mb-2">кривая насоса 25-60</div>
+    <div className="w-full flex justify-start -ml-12">
+      <ResponsiveContainer width="100%" height={180}>
+        <LineChart data={curve.data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <XAxis type="number" dataKey="flow" name="м³/ч" fontSize={10} stroke="#666" />
           <YAxis type="number" dataKey="head" name="м" fontSize={10} stroke="#666" />
@@ -182,11 +233,19 @@ const LoopCardList = () => {
   const [cards, setCards] = useState([{ name: "", totalLength: 70, supplyLength: 15, innerDiameter: 12, pipeStep: 150 }]);
   const [deltaT, setDeltaT] = useState(5);
 
+<<<<<<< HEAD
   const addCard = () => setCards(prev => [...prev, { name: "", totalLength: 70, supplyLength: 15, innerDiameter: 12, pipeStep: 150 }]);
   const updateCard = (index, data) => setCards(cards.map((c, i) => i === index ? data : c));
   const removeCard = index => setCards(cards.filter((_, i) => i !== index));
 
   const results = cards.map((c) => {
+=======
+  const addCard = () => setCards(prev => [...prev, { name: "", totalLength: 70, supplyLength: 15, innerDiameter: 12 }]);
+  const updateCard = (index, data) => setCards(cards.map((c, i) => i === index ? data : c));
+  const removeCard = index => setCards(cards.filter((_, i) => i !== index));
+
+  const results = cards.map(c => {
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
     const totalLength = parseFloat(c.totalLength) || 0;
     const supplyLength = parseFloat(c.supplyLength) || 0;
     const diameter = parseFloat(c.innerDiameter) || 1;
@@ -210,6 +269,7 @@ const LoopCardList = () => {
     const flowRate = deltaT > 0 ? power / (1.16 * deltaT * 60) : 0;
 
     const Q_m3s = flowRate / 1000 / 60;
+<<<<<<< HEAD
     const d_m = diameter / 1000;
     const A = Math.PI * (d_m / 2) ** 2;
     const rho = 1000, g = 9.81, nu = 1e-6, mu = 0.001;
@@ -218,6 +278,10 @@ const LoopCardList = () => {
       return { power, flowRate, resistance: Infinity, regime: 'ошибка' };
     }
 
+=======
+    const A = Math.PI * Math.pow(d_m / 2, 2);
+    if (d_m <= 0 || A === 0) return { power: 0, flowRate: 0, resistance: Infinity };
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
     const v = Q_m3s / A;
     const Re = v * d_m / nu;
     let deltaPUseful, deltaPSupply, resistance, regime;
@@ -257,6 +321,7 @@ const LoopCardList = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-wrap justify-center sm:justify-start gap-4 items-start mb-4">
         <PumpCurveSmallCard curve={grundfosCurve} operatingPoint={{ flow: totalFlow, head: maxHead }} />
@@ -264,9 +329,16 @@ const LoopCardList = () => {
       </div>
 
       <div className="flex flex-wrap justify-center sm:justify-start gap-4 items-start mb-6">
+=======
+    <div className="px-6 sm:px-8 md:px-12">
+      <div className="flex flex-wrap sm:flex-nowrap justify-center sm:justify-start gap-4 items-start mb-4">
+        <PumpCurveSmallCard curve={grundfosCurve} operatingPoint={{ flow: totalFlow, head: maxHead }} />
+        <FlowRateChartCard data={results} />
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
         <TempDeltaCard value={deltaT} onChange={setDeltaT} />
-        <div className="bg-white shadow rounded-xl p-2 w-full max-w-[220px]">
+        <div className="bg-white shadow rounded-xl p-2 w-full max-w-[220px] mb-4">
           <div className="text-sm font-semibold text-center mb-2">Общие итоги</div>
+<<<<<<< HEAD
           <div className="text-xs text-gray-700 text-center">Суммарный расход: <b>{totalFlow.toFixed(3)}</b> м³/ч</div>
           <div className="text-xs text-gray-700 text-center">Макс. сопротивление: <b>{maxHead.toFixed(2)}</b> м вод. ст.</div>
           <button
@@ -275,9 +347,16 @@ const LoopCardList = () => {
           >
             Скачать PDF-отчёт
           </button>
+=======
+          <div className="text-xs text-gray-700 text-center">
+            Суммарный расход: <b>{totalFlow.toFixed(3)}</b> м³/ч
+          </div>
+          <div className="text-xs text-gray-700 text-center">
+            Макс. сопротивление: <b>{maxHead.toFixed(2)}</b> м вод. ст.
+          </div>
+>>>>>>> 2c85eb7788c1458c138f5d8ca46393de4127ec41
         </div>
       </div>
-
       <div className="flex flex-wrap justify-center sm:justify-start gap-3 mb-6">
         {cards.map((card, index) => (
           <LoopCard key={index} index={index} data={card} updateData={updateCard} removeData={removeCard} />
@@ -286,7 +365,6 @@ const LoopCardList = () => {
           +
         </button>
       </div>
-
       <div className="flex flex-wrap justify-center sm:justify-start gap-3">
         {results.map((res, index) => (
           <ResultCard
