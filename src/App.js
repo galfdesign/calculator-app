@@ -287,4 +287,3 @@ const LoopCardList = () => {
 };
 
 export default LoopCardList;
- 
